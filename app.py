@@ -14,7 +14,6 @@ def fetch_poster(movie_id):
             return "https://image.tmdb.org/t/p/w500/" + poster_path
     except Exception:
         pass
-    # Fallback to a placeholder if API is down or path is missing
     return "https://via.placeholder.com/500x750.png?text=Poster+Not+Available"
 
 def recommend(movie):
@@ -27,7 +26,6 @@ def recommend(movie):
     for i in movies_list:
         movie_id = movies.iloc[i[0]].movie_id
         recommended_movies.append(movies.iloc[i[0]].title)
-        # fetch poster from API
         recommended_movies_posters.append(fetch_poster(movie_id))
     return recommended_movies, recommended_movies_posters
 
